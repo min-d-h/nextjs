@@ -1,5 +1,11 @@
-import * as React from 'react';
+import { useRadioGroup } from '@mui/material';
+import { useRouter } from 'next/router'
+import Index from './index'
+
+// 아래 복사본
 import {useState, useEffect} from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {CardActions, CardContent} from '@mui/material';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 
@@ -37,8 +43,7 @@ import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagi
 import {CheckCircle, CheckCircleOutlineSharp} from '@mui/icons-material';
 import { SvgIcon } from '@mui/material';
 
-
-const About = ({children}) => {
+const join = () => {
     const [selectedValue1, setSelectedValue1] = React.useState('a');
     const [selectedValue2, setSelectedValue2] = React.useState('c');
     const handleChange1 = (event) => {
@@ -114,8 +119,12 @@ const About = ({children}) => {
         setPage(0);
     };
 
+    const router = useRouter();
+    const {post} = router.query
+
     return (
-        <Container fixed>
+        <>
+            <Index>
             <ThemeProvider theme={theme}> {/* color theme 사용을 위한 태그 * 주로 최상단에 위치함 */}
                 {/* 상단 네브 바 위치 */}
                 <Card sx={{ maxWidth: '100%', height: '15%', mb: 3}} >
@@ -196,7 +205,6 @@ const About = ({children}) => {
                             </Card>
                             {/* 상세정보 */}
                             <Card sx={{ width: '100%' }}>
-                                {children}
                                 {/* 상세 정보 */}
                                 <TabPanel value="1">
                                     <CardContent>
@@ -581,8 +589,9 @@ const About = ({children}) => {
                     </TabContext>
                 </Grid>
             </ThemeProvider>
-        </Container>
+            </Index>
+        </>
     );
 }
-export default About;
 
+export default join;

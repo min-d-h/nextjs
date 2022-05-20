@@ -11,9 +11,6 @@ const join = () => {
     return (
         <>
             <Index>
-                alsdkfjalskdjfkakldsjflkjd
-                alskdjflkjasdklfklasjdklfjklsdjfkladjlkfskdlfjlasd
-                여기는 join으로 들어오게 됩니다~~ {post}
             </Index>
         </>
     );
